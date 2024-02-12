@@ -30,7 +30,7 @@ public class User implements UserDetails {
     boolean accountNonLocked;
     boolean isCredentialsNonExpired;
 
-    @ElementCollection
+    @ElementCollection(fetch = FetchType.EAGER)
     @JoinTable(name="authorities", joinColumns = @JoinColumn(name = "user_id"))
     @Column(name = "role", nullable = false)
     @Enumerated(EnumType.STRING)

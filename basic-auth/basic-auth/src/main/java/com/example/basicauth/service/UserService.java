@@ -21,14 +21,14 @@ public class UserService {
         this.passwordEncoder = passwordEncoder;
     }
 
-    public Optional<User> getByUserName(String userName){
-        return userRepository.findByUserName(userName);
+    public Optional<User> getByUserName(String username){
+        return userRepository.findByUsername(username);
     }
 
     public User createUser(CreateUserRequest request){
         User newUser = User.builder()
                 .name(request.name())
-                .username(request.userName())
+                .username(request.username())
                 .password(passwordEncoder.encode(request.password()))
                 .authorities(request.authorities())
                 .accountNonExpired(true)
